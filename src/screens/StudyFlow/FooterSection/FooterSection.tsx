@@ -16,27 +16,22 @@ export const FooterSection = (): JSX.Element => {
   ];
 
   return (
-    <footer className="w-full bg-[#0d0e1466] border-t border-[#1a1c29] backdrop-blur-[5.45px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(5.45px)_brightness(100%)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-      <div className="flex flex-col w-full max-w-[1108px] mx-auto px-[50px] py-[50px] gap-6">
-        <div className="flex w-full items-start justify-between">
-          <div className="flex items-center gap-[5px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <img
-              className="w-[39.35px] h-[35px]"
-              alt="StudyFlow Logo"
-              src={Logo}
-            />
-            <div className="font-normal text-white text-[26px] leading-[85.3px]">
+    <footer className="w-full bg-[#0d0e1466] border-t border-[#1a1c29] backdrop-blur-[5.45px] translate-y-[-1rem] animate-fade-in opacity-0">
+      <div className="flex flex-col w-full max-w-[1108px] mx-auto px-4 sm:px-8 py-10 gap-6">
+        <div className="flex flex-col sm:flex-row w-full items-start sm:items-center justify-between gap-6">
+          <div className="flex items-center gap-2">
+            <img className="w-[34px] h-[30px]" alt="StudyFlow Logo" src={Logo} />
+            <div className="text-white text-[22px] leading-none">
               <span className="font-semibold">Study</span>
               <span className="font-light">Flow</span>
             </div>
           </div>
-
-          <nav className="flex items-center gap-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+          <nav className="flex flex-wrap items-center gap-2 sm:gap-4">
             {navigationLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="inline-flex items-center justify-center gap-2 p-2 font-normal text-[#7a7b85] text-sm leading-[22.4px] whitespace-nowrap hover:text-white transition-colors"
+                className="px-2 py-1 text-xs sm:text-sm text-[#7a7b85] hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -44,27 +39,24 @@ export const FooterSection = (): JSX.Element => {
           </nav>
         </div>
 
-        <Separator className="bg-[#1a1c29] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]" />
+        <Separator className="bg-[#1a1c29]" />
 
-        <div className="flex w-full items-center justify-between translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
-          <div className="text-[#7a7b85] font-normal text-sm leading-[22.4px]">
-            copyright - 2025
+        <div className="flex flex-col sm:flex-row w-full items-start sm:items-center justify-between gap-4">
+          <div className="text-[#7a7b85] text-xs sm:text-sm">copyright - 2025</div>
+          <div className="flex items-center gap-4">
+            <a href="#" className="hover:opacity-80 transition-opacity">
+              <img src={LinkedinLogo} alt="LinkedIn" className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+            <a href="#" className="hover:opacity-80 transition-opacity">
+              <img src={InstagramLogo} alt="Instagram" className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+            <a href="#" className="hover:opacity-80 transition-opacity">
+              <img src={TwitterLogo} alt="Twitter" className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+            <a href="#" className="hover:opacity-80 transition-opacity">
+              <img src={FacebookLogo} alt="Facebook" className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
           </div>
-
-            <div className="flex items-center gap-4">
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src={LinkedinLogo} alt="LinkedIn" className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src={InstagramLogo} alt="Instagram" className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src={TwitterLogo} alt="Twitter" className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src={FacebookLogo} alt="Facebook" className="w-6 h-6" />
-                </a>
-            </div>
         </div>
       </div>
     </footer>
