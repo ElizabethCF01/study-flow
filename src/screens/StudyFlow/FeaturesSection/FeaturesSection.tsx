@@ -170,7 +170,7 @@ export const FeaturesSection = (): JSX.Element => {
 				</div>
 				<div className="relative h-[52px] flex items-center justify-center">
 					<div className="w-[146px] h-[37px] rounded-[60px] blur-[11.5px] bg-[linear-gradient(52deg,rgba(129,164,229,1)_0%,rgba(137,201,233,1)_54%,rgba(147,115,236,1)_100%)] opacity-50 absolute top-[15px] left-1/2 -translate-x-1/2" />
-					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
+					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full absolute bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
 						See How It Works
 						<img className="w-[5.25px] h-[9.63px]" alt="" src={ChevronRight} />
 					</Button>
