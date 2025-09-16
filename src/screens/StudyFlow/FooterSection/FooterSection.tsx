@@ -1,5 +1,5 @@
 import { Separator } from "../../../components/ui/separator";
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/logo-outline.png";
 
 import LinkedinLogo from "../../../assets/linkedin.png";
 import InstagramLogo from "../../../assets/instagram.png";

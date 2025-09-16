@@ -1,5 +1,6 @@
 // import { Badge } from "../../../components/ui/badge";
-
+import { useState } from "react";
+import axios from "axios";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Button } from "../../../components/ui/button";
@@ -156,6 +157,49 @@ const testimonials = [
 // ];
 
 export const FeaturesSection = (): JSX.Element => {
+	const [formData, setFormData] = useState({
+		name: "",
+		from: "",
+		message: ""
+	});
+	const [isLoading, setIsLoading] = useState(false);
+	const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value } = e.target;
+		setFormData(prev => ({
+			...prev,
+			[name]: value
+		}));
+	};
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setIsLoading(true);
+		setSubmitStatus('idle');
+
+		try {
+			const contactUrl = import.meta.env.VITE_API_CONTACT;
+			if (!contactUrl) {
+				throw new Error('Contact API URL not configured');
+			}
+
+			await axios.post(contactUrl, {
+				from: formData.from,
+				message: formData.message,
+				name: formData.name
+			});
+
+			setSubmitStatus('success');
+			setFormData({ name: "", from: "", message: "" }); // Reset form
+		} catch (error) {
+			console.error('Failed to send message:', error);
+			setSubmitStatus('error');
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
 	return (
 		<div className="flex flex-col items-center justify-center w-full relative pt-24 sm:pt-28 px-4 sm:px-6">
 			{/* Hero copy */}
@@ -170,7 +214,7 @@ export const FeaturesSection = (): JSX.Element => {
 				</div>
 				<div className="relative h-[52px] flex items-center justify-center">
 					<div className="w-[146px] h-[37px] rounded-[60px] blur-[11.5px] bg-[linear-gradient(52deg,rgba(129,164,229,1)_0%,rgba(137,201,233,1)_54%,rgba(147,115,236,1)_100%)] opacity-50 absolute top-[15px] left-1/2 -translate-x-1/2" />
-					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full absolute bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
+					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full absolute bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
 						See How It Works
 						<img className="w-[5.25px] h-[9.63px]" alt="" src={ChevronRight} />
 					</Button>
@@ -208,20 +252,20 @@ export const FeaturesSection = (): JSX.Element => {
 						What our app users are saying
 					</h2>
 					<div className="hidden sm:flex items-start gap-3">
-						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(226deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] hover:opacity-90 transition-opacity">
+						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
 							<ArrowLeft className="w-6 h-6" />
 						</Button>
-						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] hover:opacity-90 transition-opacity">
+						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
 							<ArrowRight className="w-6 h-6" />
 						</Button>
 					</div>
 				</div>
 
 				<div className="flex sm:hidden gap-3 mb-2">
-					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(226deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)]">
+					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
 						<ArrowLeft className="w-5 h-5" />
 					</Button>
-					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)]">
+					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
 						<ArrowRight className="w-5 h-5" />
 					</Button>
 				</div>
@@ -319,14 +363,18 @@ export const FeaturesSection = (): JSX.Element => {
 						Contact us for additional details or assistance.
 					</p>
 				</div>
-				<div className="flex flex-col items-start gap-6 flex-1 w-full">
+				<form onSubmit={handleSubmit} className="flex flex-col items-start gap-6 flex-1 w-full">
 					<div className="flex flex-col items-start gap-2 w-full">
 						<label className="font-normal text-white text-xs sm:text-sm">
 							Name
 						</label>
 						<Input
+							name="name"
+							value={formData.name}
+							onChange={handleInputChange}
 							placeholder="Name"
 							className="bg-[#14151f] border-none text-[#7a7b85] w-full text-sm px-4 py-3 rounded-lg"
+							required
 						/>
 					</div>
 					<div className="flex flex-col items-start gap-2 w-full">
@@ -334,9 +382,13 @@ export const FeaturesSection = (): JSX.Element => {
 							E-mail
 						</label>
 						<Input
+							name="from"
+							value={formData.from}
+							onChange={handleInputChange}
 							placeholder="E-mail"
 							type="email"
 							className="bg-[#14151f] border-none text-[#7a7b85] text-sm px-4 py-3 rounded-lg"
+							required
 						/>
 					</div>
 					<div className="flex flex-col items-start gap-2 w-full">
@@ -344,14 +396,32 @@ export const FeaturesSection = (): JSX.Element => {
 							Message
 						</label>
 						<Textarea
+							name="message"
+							value={formData.message}
+							onChange={handleInputChange}
 							placeholder="Add your message"
 							className="h-[150px] sm:h-[182px] bg-[#14151f] border-none text-[#7a7b85] text-sm px-4 py-3 rounded-lg resize-none"
+							required
 						/>
 					</div>
-					<Button className="h-auto w-full bg-[linear-gradient(46deg,rgba(112,207,228,1)_0%,rgba(152,129,229,1)_100%)] text-[#07070a] text-sm sm:text-base px-5 py-3 rounded-full hover:opacity-90 transition-opacity">
-						Submit
+					{submitStatus === 'success' && (
+						<div className="w-full p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+							<p className="text-green-400 text-sm">Message sent successfully!</p>
+						</div>
+					)}
+					{submitStatus === 'error' && (
+						<div className="w-full p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+							<p className="text-red-400 text-sm">Failed to send message. Please try again.</p>
+						</div>
+					)}
+					<Button 
+						type="submit"
+						disabled={isLoading}
+						className="h-auto w-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#07070a] text-sm sm:text-base px-5 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
+					>
+						{isLoading ? 'Sending...' : 'Submit'}
 					</Button>
-				</div>
+				</form>
 			</div>
 		</div>
 	);
