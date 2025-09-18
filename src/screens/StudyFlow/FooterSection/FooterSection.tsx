@@ -23,7 +23,7 @@ export const FooterSection = (): JSX.Element => {
             <img className="w-[34px] h-[30px]" alt="StudyFlow Logo" src={Logo} />
             <div className="text-white text-[22px] leading-none">
               <span className="font-semibold">Study</span>
-              <span className="font-light">Flow</span>
+              <span className="font-light text-[#39D1E5]">Flow</span>
             </div>
           </div>
           <nav className="flex flex-wrap items-center gap-2 sm:gap-4">

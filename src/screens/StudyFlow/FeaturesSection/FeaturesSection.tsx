@@ -214,7 +214,7 @@ export const FeaturesSection = (): JSX.Element => {
 				</div>
 				<div className="relative h-[52px] flex items-center justify-center">
 					<div className="w-[146px] h-[37px] rounded-[60px] blur-[11.5px] bg-[linear-gradient(52deg,rgba(129,164,229,1)_0%,rgba(137,201,233,1)_54%,rgba(147,115,236,1)_100%)] opacity-50 absolute top-[15px] left-1/2 -translate-x-1/2" />
-					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full absolute bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
+					<Button className="h-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full absolute bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#1e2f14] text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity">
 						See How It Works
 						<img className="w-[5.25px] h-[9.63px]" alt="" src={ChevronRight} />
 					</Button>
@@ -252,20 +252,20 @@ export const FeaturesSection = (): JSX.Element => {
 						What our app users are saying
 					</h2>
 					<div className="hidden sm:flex items-start gap-3">
-						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
+						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
 							<ArrowLeft className="w-6 h-6" />
 						</Button>
-						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
+						<Button className="h-auto flex items-center justify-center px-5 py-2.5 rounded-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] hover:opacity-90 transition-opacity">
 							<ArrowRight className="w-6 h-6" />
 						</Button>
 					</div>
 				</div>
 
 				<div className="flex sm:hidden gap-3 mb-2">
-					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
+					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
 						<ArrowLeft className="w-5 h-5" />
 					</Button>
-					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
+					<Button className="h-auto flex items-center justify-center px-4 py-2 rounded-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)]">
 						<ArrowRight className="w-5 h-5" />
 					</Button>
 				</div>
@@ -417,7 +417,7 @@ export const FeaturesSection = (): JSX.Element => {
 					<Button 
 						type="submit"
 						disabled={isLoading}
-						className="h-auto w-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#07070a] text-sm sm:text-base px-5 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
+						className="h-auto w-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#07070a] text-sm sm:text-base px-5 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
 					>
 						{isLoading ? 'Sending...' : 'Submit'}
 					</Button>

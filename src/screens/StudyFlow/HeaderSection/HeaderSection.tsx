@@ -25,7 +25,7 @@ export const HeaderSection = (): JSX.Element => {
         <img className="w-[34px] h-[30px]" alt="StudyFlow Logo" src={Logo} />
         <div className="font-normal text-white text-[22px] sm:text-[24px] leading-none tracking-tight">
           <span className="font-semibold">Study</span>
-          <span className="font-light">Flow</span>
+          <span className="font-light text-[#39D1E5]">Flow</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export const HeaderSection = (): JSX.Element => {
         >
           Login
         </Button>
-        <Button className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-6 py-2 h-auto rounded-full bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#11111c] text-xs sm:text-sm font-medium hover:opacity-90">
+        <Button className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-6 py-2 h-auto rounded-full bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#11111c] text-xs sm:text-sm font-medium hover:opacity-90">
           Sign up
         </Button>
         <Button
@@ -95,7 +95,7 @@ export const HeaderSection = (): JSX.Element => {
               <Button variant="ghost" className="flex-1 text-xs py-2 text-white">
                 Login
               </Button>
-              <Button className="flex-1 text-xs py-2 bg-[linear-gradient(46deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#11111c]">
+              <Button className="flex-1 text-xs py-2 bg-[linear-gradient(145deg,rgba(143,100,254,1)_0%,rgba(57,209,229,1)_100%)] text-[#11111c]">
                 Sign up
               </Button>
             </div>
